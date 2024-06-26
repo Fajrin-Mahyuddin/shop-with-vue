@@ -1,16 +1,15 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import Menubar from 'primevue/menubar';
-import { ref, defineProps } from 'vue';
-
-// const itemss = defineModel();
-const { menus } = defineProps(["menus"])
+import Container from '@/components/Container.vue';
+// const items = defineModel<{ label: string, icon: string }[]>({ required: true })
 const items = ref([
 	{
 		label: 'Home',
 		icon: 'pi pi-home'
 	},
 	{
-		label: 'Features',
+		label: 'Product',
 		icon: 'pi pi-star'
 	},
 	{
@@ -44,21 +43,21 @@ const items = ref([
 				]
 			}
 		]
-	},
-	{
-		label: 'Contact',
-		icon: 'pi pi-envelope'
 	}
 ]);
 </script>
 
 <template>
-	<Menubar :model="items" class="bg-[salmon]" />
-	<br />
-	<h1>
-		<slot name="foo" />
-		<div class="text-red-500">
-			<slot name="bar" v-bind="menus" />
-		</div>
-	</h1>
+	<Container>
+		<template #content>
+			<Menubar :model="items">
+				<template #item="{ item }">
+					<a href="# " class="flex items-center text-[14px] py-2 px-3">
+						<span :class="item.icon" />
+						<span class="ml-2">{{ item.label }}</span>
+					</a>
+				</template>
+			</Menubar>
+		</template>
+	</Container>
 </template>

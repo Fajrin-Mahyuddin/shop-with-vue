@@ -6,26 +6,26 @@ import Header from '@/components/Header/Header.vue';
 export default defineComponent({
   components: {
     Button,
-    Header
+    Header,
   },
   data: function () {
     return {
-      arr:
-        { name: "fajrin", age: 30 }
-
+      items: [
+        {
+          label: "Home",
+          icon: "pi pi-envelope"
+        },
+        {
+          label: "Products",
+          icon: "pi pi-envelope"
+        }
+      ]
     }
-  }
+  },
 })
 </script>
 
 <template>
-  <Header :menus="arr">
-    <template #foo>
-      <h2>tesasdf</h2>
-    </template>
-    <template #bar="{ name, age }">
-      <h2>{{ name }} - {{ age }}</h2>
-    </template>
-  </Header>
-
+  <Header />
+  <h2>ss</h2>
 </template>

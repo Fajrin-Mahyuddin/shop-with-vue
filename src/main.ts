@@ -1,15 +1,13 @@
 import { createApp } from 'vue'
 import './style.css'
 import 'primeicons/primeicons.css'
-// import './assets/css/preflight.css';
 import App from '@/App.vue'
 import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura';
-// import { definePreset } from '@primevue/themes';
+import mypreset from '@/assets/presetAura'
 
 createApp(App).use(PrimeVue, {
 	theme: {
-		preset: Aura,
+		preset: mypreset,
 		options: {
 			cssLayer: {
 				name: "primevue",

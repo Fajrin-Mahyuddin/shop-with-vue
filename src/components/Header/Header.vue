@@ -1,8 +1,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import Menubar from 'primevue/menubar';
+// import Button from 'primevue/button';
+import Menu from 'primevue/menu';
+import Avatar from 'primevue/avatar';
+import OverlayBadge from 'primevue/overlaybadge';
 import Container from '@/components/Container.vue';
-// const items = defineModel<{ label: string, icon: string }[]>({ required: true })
+import logo from '@/assets/logo.svg';
+import { headerStyle, headerColorScheme } from './headerStyleConfig';
+
 const items = ref([
 	{
 		label: 'Home',
@@ -21,14 +27,6 @@ const items = ref([
 				icon: 'pi pi-bolt'
 			},
 			{
-				label: 'Blocks',
-				icon: 'pi pi-server'
-			},
-			{
-				label: 'UI Kit',
-				icon: 'pi pi-pencil'
-			},
-			{
 				label: 'Templates',
 				icon: 'pi pi-palette',
 				items: [
@@ -45,17 +43,38 @@ const items = ref([
 		]
 	}
 ]);
+const settingMenu = ref()
+const settings = ref([
+	{
+		label: "Fajrin Mahyuddin",
+		items: [
+			{ label: "Profile", icon: "pi pi-plus" },
+			{ label: "Logout", icon: "pi pi-sign-out" },
+		]
+	}
+])
+
+const handleSettings = (event: MouseEvent) => {
+	settingMenu.value.toggle(event)
+}
 </script>
 
 <template>
 	<Container>
 		<template #content>
-			<Menubar :model="items">
-				<template #item="{ item }">
-					<a href="# " class="flex items-center text-[14px] py-2 px-3">
-						<span :class="item.icon" />
-						<span class="ml-2">{{ item.label }}</span>
+			<Menubar :model="items" :pt="headerStyle" :dt="headerColorScheme">
+				<template #start>
+					<a href="# ">
+						<img :src="logo" alt="main logo" class="w-[60px] mr-2" />
 					</a>
+				</template>
+				<template #end>
+					<button type="button" class="flex-auto" @click="handleSettings">
+						<OverlayBadge value="4" severity="danger" class="inline-flex">
+							<Avatar icon="pi pi-user" shape="circle" />
+						</OverlayBadge>
+					</button>
+					<Menu ref="settingMenu" id="overlay_menu" :model="settings" :popup="true" :pt="headerStyle" />
 				</template>
 			</Menubar>
 		</template>

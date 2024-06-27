@@ -1,16 +1,30 @@
 import { definePreset } from "@primevue/themes";
 import Aura from '@primevue/themes/aura';
 import mycolors from "@/assets/colors";
-import { menubarStyle } from "@/components/Header/headerStyleConfig";
 
 const mypreset = definePreset(Aura, {
 	semantic: {
+		navigation: {
+			item: {
+				fontSize: '6rem'
+			}
+		},
 		colorScheme: {
 			light: {
 				navigation: {
 					item: {
 						focusBackground: mycolors.myorange.light,
-						focusColor: "#ffffff"
+						activeBackground: mycolors.myorange.light,
+						focusColor: "#ffffff",
+						activeColor: "#ffffff",
+						icon: {
+							focusColor: "#fff",
+							activeColor: "#fff",
+						}
+					},
+					submenuIcon: {
+						focusColor: "#fff",
+						activeColor: "#fff"
 					}
 				},
 			},
@@ -18,15 +32,13 @@ const mypreset = definePreset(Aura, {
 				navigation: {
 					item: {
 						focusBackground: mycolors.myorange.dark,
-						focusColor: "#ffffff"
+						activeBackground: mycolors.myorange.dark,
+						// focusColor: "#ffffff"
 					},
 				}
 			}
 		}
 	},
-	components: {
-		menubar: menubarStyle
-	}
 })
 
 export default mypreset

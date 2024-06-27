@@ -1,24 +1,31 @@
 import mycolors from "@/assets/colors";
 
-export const menubarStyle = {
+export const headerColorScheme = {
 	colorScheme: {
 		light: {
 			root: {
 				background: mycolors.mywhite.light,
-				borderRadius: "none",
-				borderWidth: "0px",
-				borderColor: "none",
-				fontSize: "text-[10px]"
-			}
+			},
 		},
 		dark: {
 			root: {
 				background: mycolors.mywhite.dark,
-				borderRadius: "none",
-				borderWidth: "0px",
-				borderColor: "none",
-				fontSize: "text-[10px]"
 			},
+			submenu: {
+				background: mycolors.mywhite.dark
+			}
 		}
-	}
+	},
+	border: {
+		color: "none"
+	},
+}
+
+export const headerStyle = {
+	item: {
+		class: 'text-[14px]'
+	},
+	itemIcon: {
+		class: 'text-[14px]'
+	},
 }

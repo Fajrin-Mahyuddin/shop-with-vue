@@ -7,7 +7,7 @@ import Avatar from 'primevue/avatar';
 import OverlayBadge from 'primevue/overlaybadge';
 import Container from '@/components/Container.vue';
 import logo from '@/assets/logo.svg';
-import { headerStyle, headerColorScheme } from './headerStyleConfig';
+import { headerStyle, headerColorScheme, menuStyle } from './headerStyleConfig';
 
 const items = ref([
 	{
@@ -48,7 +48,7 @@ const settings = ref([
 	{
 		label: "Fajrin Mahyuddin",
 		items: [
-			{ label: "Profile", icon: "pi pi-plus" },
+			{ label: "Profile", icon: "pi pi-user" },
 			{ label: "Logout", icon: "pi pi-sign-out" },
 		]
 	}
@@ -61,7 +61,7 @@ const handleSettings = (event: MouseEvent) => {
 
 <template>
 	<Container>
-		<template #content>
+		<template #default>
 			<Menubar :model="items" :pt="headerStyle" :dt="headerColorScheme">
 				<template #start>
 					<a href="# ">
@@ -74,7 +74,8 @@ const handleSettings = (event: MouseEvent) => {
 							<Avatar icon="pi pi-user" shape="circle" />
 						</OverlayBadge>
 					</button>
-					<Menu ref="settingMenu" id="overlay_menu" :model="settings" :popup="true" :pt="headerStyle" />
+					<Menu ref="settingMenu" id="overlay_menu" :model="settings" :popup="true" :pt="menuStyle"
+						:dt="headerColorScheme" />
 				</template>
 			</Menubar>
 		</template>

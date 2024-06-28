@@ -12,7 +12,7 @@ const mycolors = {
 	mygray: {
 		light: "#eff3f8",
 		DEFAULT: "#eff3f8",
-		dark: "#aba4aa",
+		dark: "#606364",
 	}
 }
 

@@ -8,7 +8,7 @@ const { bgColor } = withDefaults(defineProps<{ bgColor?: string }>(), {
 <template>
 	<div :class="bgColor">
 		<div class="max-w-[1440px] m-[auto]">
-			<slot name="content"></slot>
+			<slot></slot>
 		</div>
 	</div>
 </template>

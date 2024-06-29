@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-defineProps(["name", "age"])
+defineProps(["name", "age"]);
 </script>
 
 <template>
-	<h2>{{ name }} {{ age }}</h2>
+  <h2>{{ name }} {{ age }}</h2>
 </template>

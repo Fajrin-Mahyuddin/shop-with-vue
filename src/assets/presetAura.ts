@@ -1,32 +1,11 @@
 import { definePreset } from "@primevue/themes";
-import Aura from '@primevue/themes/aura';
-import mycolors from "@/assets/colors";
-import { menubarStyle } from "@/components/Header/headerStyleConfig";
+import Aura from "@primevue/themes/aura";
+import { menuColorSchema } from "@/components/Header/menuStyleConfig";
 
 const mypreset = definePreset(Aura, {
-	semantic: {
-		colorScheme: {
-			light: {
-				navigation: {
-					item: {
-						focusBackground: mycolors.myorange.light,
-						focusColor: "#ffffff"
-					}
-				},
-			},
-			dark: {
-				navigation: {
-					item: {
-						focusBackground: mycolors.myorange.dark,
-						focusColor: "#ffffff"
-					},
-				}
-			}
-		}
-	},
-	components: {
-		menubar: menubarStyle
-	}
-})
+  components: {
+    menu: menuColorSchema,
+  },
+});
 
-export default mypreset
+export default mypreset;

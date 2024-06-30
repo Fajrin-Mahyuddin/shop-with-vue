@@ -1,6 +1,6 @@
 import { definePreset } from "@primevue/themes";
 import Aura from "@primevue/themes/aura";
-import { menuColorSchema } from "@/components/Header/menuStyleConfig";
+import { menuColorSchema } from "@/components/header/menuStyleConfig";
 
 const mypreset = definePreset(Aura, {
   components: {

@@ -5,7 +5,7 @@ import Container from "@/components/Container.vue";
 import {
   subheaderColorScheme,
   subheaderStyle,
-} from "@/components/Subheader/subheaderStyleConfig";
+} from "@/components/subheader/subheaderStyleConfig";
 
 const items = ref([
   {
@@ -172,11 +172,14 @@ const items = ref([
 <template>
   <Container bg-color="bg-mygray-light dark:bg-mygray-dark">
     <template #default>
-      <MegaMenu
-        :model="items"
-        :dt="subheaderColorScheme"
-        :pt="subheaderStyle"
-      />
+      <MegaMenu :model="items" :dt="subheaderColorScheme" :pt="subheaderStyle">
+        <template #end>
+          <button type="button" class="bg-[transparent]">
+            <span class="pi pi-sun"></span>
+            <!-- <span class="pi pi-moon hidden dark:inline-block"></span> -->
+          </button>
+        </template>
+      </MegaMenu>
     </template>
   </Container>
 </template>

@@ -10,15 +10,20 @@ import logo from "@/assets/logo.svg";
 import logoWhite from "@/assets/logo-white.svg";
 import { headerStyle, headerColorScheme } from "./headerStyleConfig";
 import { menuStyle } from "./menuStyleConfig";
+// import { useRouter } from 'vue-router';
+
+// const router = useRouter()
 
 const items = ref([
   {
     label: "Home",
     icon: "pi pi-home",
+    route: "/",
   },
   {
     label: "Product",
     icon: "pi pi-star",
+    route: "/products",
   },
   {
     label: "Projects",
@@ -27,6 +32,7 @@ const items = ref([
       {
         label: "Components",
         icon: "pi pi-bolt",
+        route: "/components",
       },
       {
         label: "Templates",
@@ -79,11 +85,28 @@ const handleSettings = (event: MouseEvent) => {
             />
           </a>
         </template>
+        <template #item="{ item, props }">
+          <router-link
+            v-if="item.route"
+            v-slot="{ href, navigate }"
+            :to="item.route"
+            custom
+          >
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+              <span :class="item.icon" />
+              <span class="ml-2">{{ item.label }}</span>
+            </a>
+          </router-link>
+          <span v-else>{{ item.label }}</span>
+        </template>
         <template #end>
+          <button type="button" aria-label="Bookmark" class="mr-2">
+            <Avatar icon="pi pi-shopping-cart" shape="circle" />
+          </button>
           <button type="button" class="flex-auto" @click="handleSettings">
             <Avatar icon="pi pi-user" shape="circle" />
             <!-- <OverlayBadge value="4" severity="danger" class="inline-flex">
-						</OverlayBadge> -->
+            </OverlayBadge> -->
           </button>
           <Menu
             ref="settingMenu"

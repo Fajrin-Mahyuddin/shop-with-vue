@@ -4,7 +4,7 @@ import Menubar from "primevue/menubar";
 // import Button from 'primevue/button';
 import Menu from "primevue/menu";
 import Avatar from "primevue/avatar";
-// import OverlayBadge from 'primevue/overlaybadge';
+import OverlayBadge from "primevue/overlaybadge";
 import Container from "@/components/Container.vue";
 import logo from "@/assets/logo.svg";
 import logoWhite from "@/assets/logo-white.svg";
@@ -85,7 +85,7 @@ const handleSettings = (event: MouseEvent) => {
             />
           </a>
         </template>
-        <template #item="{ item, props }">
+        <template #item="{ item, props, hasSubmenu, root }">
           <router-link
             v-if="item.route"
             v-slot="{ href, navigate }"
@@ -97,16 +97,26 @@ const handleSettings = (event: MouseEvent) => {
               <span class="ml-2">{{ item.label }}</span>
             </a>
           </router-link>
-          <span v-else>{{ item.label }}</span>
+          <a v-else href="# " v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <i
+              v-if="hasSubmenu"
+              :class="[
+                'pi pi-angle-down text-[13px]',
+                { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root },
+              ]"
+            ></i>
+          </a>
         </template>
         <template #end>
           <button type="button" aria-label="Bookmark" class="mr-2">
-            <Avatar icon="pi pi-shopping-cart" shape="circle" />
+            <OverlayBadge value="4" severity="danger" class="inline-flex">
+              <Avatar icon="pi pi-shopping-cart" shape="circle" />
+            </OverlayBadge>
           </button>
           <button type="button" class="flex-auto" @click="handleSettings">
             <Avatar icon="pi pi-user" shape="circle" />
-            <!-- <OverlayBadge value="4" severity="danger" class="inline-flex">
-            </OverlayBadge> -->
           </button>
           <Menu
             ref="settingMenu"

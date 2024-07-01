@@ -6,7 +6,6 @@ import InputText from "primevue/inputtext";
 import Chip from "primevue/chip";
 import {
   searchColorScheme,
-  addonColorScheme,
   chipStyle,
 } from "@/components/forms/search/searchStyleConfig";
 import { ref } from "vue";
@@ -28,7 +27,7 @@ const handleFilter = () => {
         <InputIcon class="pi pi-search" />
       </InputGroupAddon>
       <InputText :dt="searchColorScheme" class="w-full" placeholder="Search" />
-      <InputGroupAddon :dt="addonColorScheme">
+      <InputGroupAddon :dt="searchColorScheme">
         <button type="button" @click="handleFilter">
           <InputIcon class="pi pi-sliders-h" />
         </button>

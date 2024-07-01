@@ -27,9 +27,13 @@ defineProps<{ description: string; imgs: string }>();
       </div>
     </div>
     <div class="p-2 flex flex-col">
-      <div class="flex justify-end text-[17px] font-semibold">
-        <span class="line-through text-mygray-dark">$10.000</span>
-        <span>/ $6.000</span>
+      <div class="flex justify-between items-center text-[17px] font-semibold">
+        <div>
+          <span>$6.000</span>
+          <span>/</span>
+          <span class="line-through text-mygray-dark">$10.000</span>
+        </div>
+        <span class="pi pi-tags"></span>
       </div>
       <Divider />
       <div class="flex justify-between items-center">

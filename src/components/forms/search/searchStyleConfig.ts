@@ -35,30 +35,30 @@ export const searchColorScheme = {
   },
 };
 
-export const addonColorScheme = {
-  colorScheme: {
-    light: {
-      border: {
-        color: "none",
-      },
-      shadow: "none",
-      root: {
-        background: mycolors.mywhite.light,
-      },
-    },
-    dark: {
-      border: {
-        color: "none",
-      },
-      shadow: "none",
-      root: {
-        background: mycolors.mywhite.dark,
-      },
-    },
-  },
-};
+// export const addonColorScheme = {
+//   colorScheme: {
+//     light: {
+//       border: {
+//         color: "none",
+//       },
+//       shadow: "none",
+//       root: {
+//         background: mycolors.mywhite.light,
+//       },
+//     },
+//     dark: {
+//       border: {
+//         color: "none",
+//       },
+//       shadow: "none",
+//       root: {
+//         background: mycolors.mywhite.dark,
+//       },
+//     },
+//   },
+// };
 
 export const chipStyle = {
-  root: "bg-myorange-light dark:bg-myblue text-mywhite-light py-1 text-[13px]",
+  root: "bg-myorange-light dark:bg-myblue text-mywhite-light py-[3px] text-[12px]",
   removeIcon: "text-mywhite-light",
 };

@@ -36,7 +36,7 @@ const products = ref([
     :dt="heroColorScheme"
   >
     <template #item="slotProps">
-      <div class="w-full overflow-hidden rounded-lg">
+      <div class="w-full overflow-hidden rounded-md md:rounded-lg">
         <img
           :src="slotProps.data.srcImages"
           :alt="slotProps.data.id"

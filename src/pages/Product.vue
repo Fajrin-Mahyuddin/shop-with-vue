@@ -44,7 +44,7 @@ const products = ref([
 
 <template>
   <Container bg-color="bg-mygray-light dark:bg-mygray-dark">
-    <Search />
+    <Search :is-filter="true" />
     <div class="h-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
       <ProductCard v-for="(product, i) in products" :key="i" v-bind="product" />
     </div>

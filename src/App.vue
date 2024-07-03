@@ -3,12 +3,14 @@ import Button from "primevue/button";
 import { defineComponent } from "vue";
 import Header from "@/components/header/Header.vue";
 import Subheader from "@/components/subheader/Subheader.vue";
+import Footer from "@/components/footer/Footer.vue";
 
 export default defineComponent({
   components: {
     Button,
     Header,
     Subheader,
+    Footer,
   },
 });
 </script>
@@ -17,6 +19,7 @@ export default defineComponent({
   <Header />
   <Subheader />
   <main>
-    <RouterView />
+    <router-view />
   </main>
+  <Footer />
 </template>

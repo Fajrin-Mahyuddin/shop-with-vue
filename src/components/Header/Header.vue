@@ -10,6 +10,7 @@ import logo from "@/assets/logo.svg";
 import logoWhite from "@/assets/logo-white.svg";
 import { headerStyle, headerColorScheme } from "./headerStyleConfig";
 import { menuStyle } from "./menuStyleConfig";
+import Login from "@/components/cards/dialogs/Login.vue";
 // import { useRouter } from 'vue-router';
 
 // const router = useRouter()
@@ -52,12 +53,19 @@ const items = ref([
   },
 ]);
 const settingMenu = ref();
+const isopen = ref(false);
+
 const settings = ref([
   {
     label: "Fajrin Mahyuddin",
     items: [
       { label: "Profile", icon: "pi pi-user" },
-      { label: "Logout", icon: "pi pi-sign-out" },
+      {
+        label: "Login",
+        icon: "pi pi-sign-in",
+        command: () => (isopen.value = true),
+      },
+      // { label: "Logout", icon: "pi pi-sign-out" },
     ],
   },
 ]);
@@ -68,6 +76,7 @@ const handleSettings = (event: MouseEvent) => {
 </script>
 
 <template>
+  <Login v-model:is-open="isopen" />
   <Container>
     <template #default>
       <Menubar :model="items" :dt="headerColorScheme" :pt="headerStyle">
@@ -92,7 +101,7 @@ const handleSettings = (event: MouseEvent) => {
             :to="item.route"
             custom
           >
-            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+            <a :href="href" v-bind="props.action" @click="navigate">
               <span :class="item.icon" />
               <span class="ml-2">{{ item.label }}</span>
             </a>

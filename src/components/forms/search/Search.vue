@@ -10,6 +10,9 @@ import {
 } from "@/components/forms/search/searchStyleConfig";
 import { ref } from "vue";
 
+const { isFilter } = withDefaults(defineProps<{ isFilter: boolean }>(), {
+  isFilter: false,
+});
 const filtered = ref(["Computer"]);
 
 const handleFilter = () => {
@@ -33,7 +36,7 @@ const handleFilter = () => {
         </button>
       </InputGroupAddon>
     </InputGroup>
-    <div class="flex flex-row gap-1 mt-2">
+    <div v-if="isFilter" class="flex flex-row gap-1 mt-2">
       <Chip
         v-for="(item, i) in filtered"
         :key="i"

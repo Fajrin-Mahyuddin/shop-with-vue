@@ -6,7 +6,7 @@ const { bgColor } = withDefaults(defineProps<{ bgColor?: string }>(), {
 
 <template>
   <div :class="bgColor">
-    <div class="max-w-[1440px] m-[auto]">
+    <div class="max-w-[1440px] m-[auto] px-3 lg:px-0">
       <slot></slot>
     </div>
   </div>

@@ -1,30 +1,16 @@
 <script lang="ts">
 import Button from "primevue/button";
 import { defineComponent } from "vue";
-import Header from "@/components/Header/Header.vue";
-import Home from "@/pages/Home.vue";
-import Subheader from "@/components/Subheader/Subheader.vue";
+import Header from "@/components/header/Header.vue";
+import Subheader from "@/components/subheader/Subheader.vue";
+import Footer from "@/components/footer/Footer.vue";
 
 export default defineComponent({
   components: {
     Button,
     Header,
     Subheader,
-    Home,
-  },
-  data: function () {
-    return {
-      items: [
-        {
-          label: "Home",
-          icon: "pi pi-envelope",
-        },
-        {
-          label: "Products",
-          icon: "pi pi-envelope",
-        },
-      ],
-    };
+    Footer,
   },
 });
 </script>
@@ -32,5 +18,8 @@ export default defineComponent({
 <template>
   <Header />
   <Subheader />
-  <Home />
+  <main>
+    <router-view />
+  </main>
+  <Footer />
 </template>

@@ -4,21 +4,27 @@ import Menubar from "primevue/menubar";
 // import Button from 'primevue/button';
 import Menu from "primevue/menu";
 import Avatar from "primevue/avatar";
-// import OverlayBadge from 'primevue/overlaybadge';
+import OverlayBadge from "primevue/overlaybadge";
 import Container from "@/components/Container.vue";
 import logo from "@/assets/logo.svg";
 import logoWhite from "@/assets/logo-white.svg";
 import { headerStyle, headerColorScheme } from "./headerStyleConfig";
 import { menuStyle } from "./menuStyleConfig";
+import Login from "@/components/cards/dialogs/Login.vue";
+// import { useRouter } from 'vue-router';
+
+// const router = useRouter()
 
 const items = ref([
   {
     label: "Home",
     icon: "pi pi-home",
+    route: "/",
   },
   {
     label: "Product",
     icon: "pi pi-star",
+    route: "/products",
   },
   {
     label: "Projects",
@@ -27,6 +33,7 @@ const items = ref([
       {
         label: "Components",
         icon: "pi pi-bolt",
+        route: "/components",
       },
       {
         label: "Templates",
@@ -46,12 +53,19 @@ const items = ref([
   },
 ]);
 const settingMenu = ref();
+const isopen = ref(false);
+
 const settings = ref([
   {
     label: "Fajrin Mahyuddin",
     items: [
       { label: "Profile", icon: "pi pi-user" },
-      { label: "Logout", icon: "pi pi-sign-out" },
+      {
+        label: "Login",
+        icon: "pi pi-sign-in",
+        command: () => (isopen.value = true),
+      },
+      // { label: "Logout", icon: "pi pi-sign-out" },
     ],
   },
 ]);
@@ -62,6 +76,7 @@ const handleSettings = (event: MouseEvent) => {
 </script>
 
 <template>
+  <Login v-model:is-open="isopen" />
   <Container>
     <template #default>
       <Menubar :model="items" :dt="headerColorScheme" :pt="headerStyle">
@@ -79,11 +94,38 @@ const handleSettings = (event: MouseEvent) => {
             />
           </a>
         </template>
+        <template #item="{ item, props, hasSubmenu, root }">
+          <router-link
+            v-if="item.route"
+            v-slot="{ href, navigate }"
+            :to="item.route"
+            custom
+          >
+            <a :href="href" v-bind="props.action" @click="navigate">
+              <span :class="item.icon" />
+              <span class="ml-2">{{ item.label }}</span>
+            </a>
+          </router-link>
+          <a v-else href="# " v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <i
+              v-if="hasSubmenu"
+              :class="[
+                'pi pi-angle-down text-[13px]',
+                { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root },
+              ]"
+            ></i>
+          </a>
+        </template>
         <template #end>
+          <button type="button" aria-label="Bookmark" class="mr-2">
+            <OverlayBadge value="4" severity="danger" class="inline-flex">
+              <Avatar icon="pi pi-shopping-cart" shape="circle" />
+            </OverlayBadge>
+          </button>
           <button type="button" class="flex-auto" @click="handleSettings">
             <Avatar icon="pi pi-user" shape="circle" />
-            <!-- <OverlayBadge value="4" severity="danger" class="inline-flex">
-						</OverlayBadge> -->
           </button>
           <Menu
             ref="settingMenu"

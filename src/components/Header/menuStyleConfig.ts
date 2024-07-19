@@ -33,8 +33,8 @@ export const menuColorSchema = {
 };
 export const menuStyle: MenuPassThroughOptionType = {
   // root: 'border-none bg-mywhite-light dark:bg-mywhite-dark',
-  item: "text-[14px]",
-  itemIcon: "text-[14px]",
+  item: "text-[13px]",
+  itemIcon: "text-[13px]",
   // itemContent: 'hover:bg-myorange-light dark:hover:bg-myorange-dark',
   // itemLabel: 'group-hover:text-[#fff]',
 };

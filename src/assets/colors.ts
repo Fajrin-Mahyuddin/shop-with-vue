@@ -14,6 +14,12 @@ const mycolors = {
     DEFAULT: "#eff3f8",
     dark: "#606364",
   },
+  mygrayblur: "#E2E8F0",
+  myblue: {
+    light: "#6db5ca",
+    DEFAULT: "#6db5ca",
+    dark: "#2e5984",
+  },
 };
 
 export default mycolors;

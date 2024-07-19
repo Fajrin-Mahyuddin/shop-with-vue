@@ -52,7 +52,7 @@ export const subheaderColorScheme: MegaMenuDesignTokens = {
 export const subheaderStyle = {
   root: "p-0 border-t-0 border-x-0 sm:border-x-0 sm:border-b-0 rounded-none border-b-1.5 py-2 sm:py-auto",
   submenu: "dark:hover:[&_.p-megamenu-item-content]:bg-mygray-dark",
-  item: "dark:hover:[&_.p-megamenu-item-content]:bg-mygray-dark text-[14px] md:[&:first-child>.p-megamenu-item-content>.p-megamenu-item-link]:pl-0",
+  item: "dark:hover:[&_.p-megamenu-item-content]:bg-mygray-dark text-[13px] md:[&:first-child>.p-megamenu-item-content>.p-megamenu-item-link]:pl-0",
   itemIcon: "text-[13px]",
   overlay: "bg-mywhite-light dark:bg-mywhite-dark border-none",
 };

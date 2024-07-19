@@ -47,7 +47,8 @@ export const headerColorScheme: MenubarDesignTokens = {
 };
 
 export const headerStyle = {
-  root: "border-none md:pl-0",
-  item: "text-[15px]",
-  itemIcon: "text-[15px]",
+  root: "border-none md:px-0",
+  item: "text-[14px]",
+  itemLink: "py-1",
+  itemIcon: "text-[14px]",
 };
